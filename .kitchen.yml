@@ -1,6 +1,8 @@
 ---
 driver:
   name: vagrant
+  network:
+    - ["private_network", {ip: "192.168.35.35"}]
 
 provisioner:
   name: chef_zero
@@ -26,3 +28,6 @@ suites:
     verifier:
       inspec_tests:
         - test/smoke/default
+    attributes:
+      sql_server:
+        server_sa_password: SQL_sa_pa$$w0rd
